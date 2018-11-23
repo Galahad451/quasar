@@ -2,8 +2,7 @@
   <q-layout view="lHh Lpr lFf">
     <q-layout-header>
       <q-toolbar
-        color="primary"
-        :glossy="$q.theme === 'mat'"
+        color=aqua
         :inverted="$q.theme === 'ios'"
       >
         <q-btn
@@ -13,7 +12,7 @@
           @click="leftDrawerOpen = !leftDrawerOpen"
           aria-label="Menu"
         >
-          <q-icon name="menu" />
+          <q-icon name="menu"/>
         </q-btn>
 
         <q-toolbar-title>
@@ -22,7 +21,6 @@
         </q-toolbar-title>
       </q-toolbar>
     </q-layout-header>
-
     <q-layout-drawer
       v-model="leftDrawerOpen"
       :content-class="$q.theme === 'mat' ? 'bg-grey-2' : null"
@@ -31,25 +29,25 @@
         no-border
         link
         inset-delimiter
-      >
+      class="left-menu">
         <q-list-header>Menú</q-list-header>
         <q-item @click.native="goto('/')">
           <q-item-side icon="school" />
           <q-item-main label="Home" sublabel="Ir al inicio" />
         </q-item>
-        <q-item @click.native="goto('/salones')">
-          <q-item-side icon="code" />
-          <q-item-main label="Salones" sublabel="La lista de los salones" />
-        </q-item>
       </q-list>
     </q-layout-drawer>
-
     <q-page-container>
       <router-view />
     </q-page-container>
   </q-layout>
 </template>
-
+<style>
+  .left-menu{
+    background-color: #4A4944;
+    color: white;
+  }
+</style>
 <script>
 // import { openURL } from 'quasar'
 
@@ -67,6 +65,3 @@ export default {
   }
 }
 </script>
-
-<style>
-</style>

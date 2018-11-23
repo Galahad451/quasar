@@ -13,6 +13,20 @@ const routes = [
     children: [
       { path: '', component: () => import('pages/salones.vue') }
     ]
+  },
+  {
+    path: '/registro',
+    component: () => import('layouts/MyLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/registro.vue') }
+    ]
+  },
+  {
+    path: '/recuperar',
+    component: () => import('layouts/MyLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/recuperar.vue') }
+    ]
   }
 ]
 

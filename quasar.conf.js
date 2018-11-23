@@ -12,10 +12,10 @@ module.exports = function (ctx) {
     ],
     extras: [
       ctx.theme.mat ? 'roboto-font' : null,
-      'material-icons' // optional, you are not bound to it
+      'material-icons', // optional, you are not bound to it
       // 'ionicons',
       // 'mdi',
-      // 'fontawesome'
+      'fontawesome'
     ],
     supportIE: false,
     build: {
@@ -44,12 +44,15 @@ module.exports = function (ctx) {
       components: [
         'QLayout',
         'QLayoutHeader',
+        'QLayoutFooter',
         'QLayoutDrawer',
         'QPageContainer',
         'QPage',
         'QToolbar',
         'QToolbarTitle',
         'QBtn',
+        'QBtnGroup',
+        'QBtnDropdown',
         'QIcon',
         'QList',
         'QListHeader',
@@ -61,8 +64,14 @@ module.exports = function (ctx) {
         'QInput',
         'QTabs',
         'QTab',
+        'QTable',
+        'QTh',
+        'QTr',
+        'QTd',
+        'QTableColumns',
         'QTabPane',
-        'QRouteTab'
+        'QRouteTab',
+        'QCheckbox'
       ],
       directives: [
         'Ripple'
