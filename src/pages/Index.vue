@@ -12,6 +12,7 @@
       <a href="#/recuperar"><p>¿Olvidaste la contraseña?</p></a>
       <p class="usuario-nuevo">¿Eres usuario nuevo? <a href="#/registro">Regístrate aquí</a></p>
     </form>
+    <noticia title="papas" summary="papas"/>
   </q-page>
 </template>
 
@@ -62,13 +63,30 @@
   }
 </style>
 <script>
+import Noticia from '../components/noticia'
 export default {
+  component: {Noticia},
   name: 'PageIndex',
   data () {
     return {
       check1: false,
       check2: true,
-      password: 'password'
+      password: 'password',
+      fechaDehoy: 'Hoy es martes 27 de Noviembre',
+      noticias: [
+        {
+          title: 'noticia1',
+          summary: 'Reseña de la noticia 1'
+        },
+        {
+          title: 'noticia2',
+          summary: 'Reseña de la noticia 2'
+        },
+        {
+          title: 'noticia3',
+          summary: 'Reseña de la noticia 3'
+        }
+      ]
     }
   }
 }

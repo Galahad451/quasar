@@ -13,27 +13,27 @@
                 <div class="grid-container">
                   <div class="grid-item">Salón 101</div>
                   <div class="grid-item">
-                    <q-btn name="salon-2" label="Abrir" :loading="loading" @click="handler"></q-btn>
+                    <q-btn name="salon-2" label="Abrir" :loading="loading" @click="abrir"></q-btn>
                   </div>
                   <div class="grid-item">Salón 102</div>
                   <div class="grid-item">
-                    <q-btn label="Abrir" :loading="loading" @click="handler"></q-btn>
+                    <q-btn label="Abrir" :loading="loading" @click="abrir"></q-btn>
                   </div>
                   <div class="grid-item">Salón 103</div>
                   <div class="grid-item">
-                    <q-btn label="Abrir" :loading="loading" @click="handler"></q-btn>
+                    <q-btn label="Abrir" :loading="loading" @click="abrir"></q-btn>
                   </div>
                   <div class="grid-item">Salón 104</div>
                   <div class="grid-item">
-                    <q-btn label="Abrir" :loading="loading" @click="handler"></q-btn>
+                    <q-btn label="Abrir" :loading="loading" @click="abrir"></q-btn>
                   </div>
                   <div class="grid-item">Salón 105</div>
                   <div class="grid-item">
-                    <q-btn label="Abrir" :loading="loading" @click="handler"></q-btn>
+                    <q-btn label="Abrir" :loading="loading" @click="abrir"></q-btn>
                   </div>
                   <div class="grid-item">Salón 106</div>
                   <div class="grid-item">
-                    <q-btn label="Abrir" :loading="loading" @click="handler"></q-btn>
+                    <q-btn label="Abrir" :loading="loading" @click="abrir"></q-btn>
                   </div>
                 </div>
               </q-tab-pane>
@@ -41,27 +41,27 @@
                 <div class="grid-container">
                   <div class="grid-item">Salón 201</div>
                   <div class="grid-item">
-                    <q-btn name="salon-2" label="Abrir" :loading="loading" @click="handler"></q-btn>
+                    <q-btn name="salon-2" label="Abrir" :loading="loading" @click="abrir"></q-btn>
                   </div>
                   <div class="grid-item">Salón 202</div>
                   <div class="grid-item">
-                    <q-btn label="Abrir" :loading="loading" @click="handler"></q-btn>
+                    <q-btn label="Abrir" :loading="loading" @click="abrir"></q-btn>
                   </div>
                   <div class="grid-item">Salón 203</div>
                   <div class="grid-item">
-                    <q-btn label="Abrir" :loading="loading" @click="handler"></q-btn>
+                    <q-btn label="Abrir" :loading="loading" @click="abrir"></q-btn>
                   </div>
                   <div class="grid-item">Salón 204</div>
                   <div class="grid-item">
-                    <q-btn label="Abrir" :loading="loading" @click="handler"></q-btn>
+                    <q-btn label="Abrir" :loading="loading" @click="abrir"></q-btn>
                   </div>
                   <div class="grid-item">Salón 205</div>
                   <div class="grid-item">
-                    <q-btn label="Abrir" :loading="loading" @click="handler"></q-btn>
+                    <q-btn label="Abrir" :loading="loading" @click="abrir"></q-btn>
                   </div>
                   <div class="grid-item">Salón 206</div>
                   <div class="grid-item">
-                    <q-btn label="Abrir" :loading="loading" @click="handler"></q-btn>
+                    <q-btn label="Abrir" :loading="loading" @click="abrir"></q-btn>
                   </div>
                 </div>
               </q-tab-pane>
@@ -69,27 +69,27 @@
                 <div class="grid-container">
                   <div class="grid-item">Salón 301</div>
                   <div class="grid-item">
-                    <q-btn name="salon-2" label="Abrir" :loading="loading" @click="handler"></q-btn>
+                    <q-btn name="salon-2" label="Abrir" :loading="loading" @click="abrir"></q-btn>
                   </div>
                   <div class="grid-item">Salón 302</div>
                   <div class="grid-item">
-                    <q-btn label="Abrir" :loading="loading" @click="handler"></q-btn>
+                    <q-btn label="Abrir" :loading="loading" @click="abrir"></q-btn>
                   </div>
                   <div class="grid-item">Salón 303</div>
                   <div class="grid-item">
-                    <q-btn label="Abrir" :loading="loading" @click="handler"></q-btn>
+                    <q-btn label="Abrir" :loading="loading" @click="abrir"></q-btn>
                   </div>
                   <div class="grid-item">Salón 304</div>
                   <div class="grid-item">
-                    <q-btn label="Abrir" :loading="loading" @click="handler"></q-btn>
+                    <q-btn label="Abrir" :loading="loading" @click="abrir"></q-btn>
                   </div>
                   <div class="grid-item">Salón 305</div>
                   <div class="grid-item">
-                    <q-btn label="Abrir" :loading="loading" @click="handler"></q-btn>
+                    <q-btn label="Abrir" :loading="loading" @click="abrir"></q-btn>
                   </div>
                   <div class="grid-item">Salón 306</div>
                   <div class="grid-item">
-                    <q-btn label="Abrir" :loading="loading" @click="handler"></q-btn>
+                    <q-btn label="Abrir" :loading="result" @click="result" to="result"></q-btn>
                   </div>
                 </div>
               </q-tab-pane>
@@ -144,6 +144,8 @@
   }
 </style>
 <script>
+import axios from 'axios'
+const querystring = require('querystring')
 export default {
   data () {
     return {
@@ -151,12 +153,13 @@ export default {
     }
   },
   methods: {
-    handler () {
-      this.loading = true
-      // we simulate a delay here:
-      setTimeout(() => {
-        this.loading = false
-      }, 5000)
+    abrir: async function () {
+      const config = {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        }
+      }
+      await axios.post('https://api.particle.io/v1/devices/23002b001147353136383631/abrirPuerta', querystring.stringify({access_token: '8dc11a1ba4ed41ef93a1aa9d761770eb78fffdb6'}), config)
     }
   }
 }
